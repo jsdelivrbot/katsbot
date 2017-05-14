@@ -1,7 +1,0 @@
-{
-
-    "name": "Bot Service",
-    "description": "A barebones Node.js bot using Restify",
-    "repository": "git+https://github.com/TheBeachMaster/katsbot.git",
-    "image": "heroku/nodejs"
-}
