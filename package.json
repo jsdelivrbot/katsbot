@@ -1,27 +1,30 @@
 {
-  "name": "katsbot",
-  "version": "1.0.0",
-  "description": "Bots",
-  "main": "app.js",
-  "scripts": {
-    "start": "node app.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/TheBeachMaster/katsbot.git"
-  },
-  "keywords": [
-    "Bots"
-  ],
-  "author": "Arthur Ken",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/TheBeachMaster/katsbot/issues"
-  },
-  "homepage": "https://github.com/TheBeachMaster/katsbot#readme",
-  "dependencies": {
-    "botbuilder": "^3.8.1",
-    "restify": "^4.3.0"
-  }
+    "name": "katsbot",
+    "version": "1.0.0",
+    "description": "Bots",
+    "main": "app.js",
+    "engines": {
+        "node": "6.10.2"
+    },
+    "scripts": {
+        "start": "node app.js",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/TheBeachMaster/katsbot.git"
+    },
+    "keywords": [
+        "Bots"
+    ],
+    "author": "Arthur Ken",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/TheBeachMaster/katsbot/issues"
+    },
+    "homepage": "https://github.com/TheBeachMaster/katsbot#readme",
+    "dependencies": {
+        "botbuilder": "^3.8.1",
+        "restify": "^4.3.0"
+    }
 }
