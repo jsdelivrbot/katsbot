@@ -5,30 +5,28 @@
 
 var request = require('request').defaults({ encoding: null });
 
-var VISION_URL = 'https://api.projectoxford.ai/vision/v1.0/analyze/?visualFeatures=Description&form=BCSIMG&subscription-key=' + process.env.MICROSOFT_VISION_API_KEY;
+var VISION_URL = 'https://api.projectoxford.ai/vision/v1.0/analyze/?visualFeatures=Description&form=BCSIMG&subscription-key=2095fed9bbbf4140aa8153e3996b6171';
 
 /** 
  *  Gets the caption of the image from an image stream
  * @param {stream} stream The stream to an image.
  * @return {Promise} Promise with caption string if succeeded, error otherwise
  */
-exports.getCaptionFromStream = function (stream) {
+exports.getCaptionFromStream = function(stream) {
     return new Promise(
-        function (resolve, reject) {
+        function(resolve, reject) {
             var requestData = {
                 url: VISION_URL,
                 encoding: 'binary',
                 headers: { 'content-type': 'application/octet-stream' }
             };
 
-            stream.pipe(request.post(requestData, function (error, response, body) {
+            stream.pipe(request.post(requestData, function(error, response, body) {
                 if (error) {
                     reject(error);
-                }
-                else if (response.statusCode !== 200) {
+                } else if (response.statusCode !== 200) {
                     reject(body);
-                }
-                else {
+                } else {
                     resolve(extractCaption(JSON.parse(body)));
                 }
             }));
@@ -41,22 +39,20 @@ exports.getCaptionFromStream = function (stream) {
  * @param {string} url The URL to an image.
  * @return {Promise} Promise with caption string if succeeded, error otherwise
  */
-exports.getCaptionFromUrl = function (url) {
+exports.getCaptionFromUrl = function(url) {
     return new Promise(
-        function (resolve, reject) {
+        function(resolve, reject) {
             var requestData = {
                 url: VISION_URL,
                 json: { 'url': url }
             };
 
-            request.post(requestData, function (error, response, body) {
+            request.post(requestData, function(error, response, body) {
                 if (error) {
                     reject(error);
-                }
-                else if (response.statusCode !== 200) {
+                } else if (response.statusCode !== 200) {
                     reject(body);
-                }
-                else {
+                } else {
                     resolve(extractCaption(body));
                 }
             });

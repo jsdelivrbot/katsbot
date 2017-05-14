@@ -3,12 +3,12 @@ require('dotenv-extended').load();
 
 
 var express = require('express');
-var builder = require('botbuilder'), //
-    needle = require('needle'),
-    restify = require('restify'),
-    url = require('url'),
-    validUrl = require('valid-url'),
-    captionService = require('./caption-service');
+var builder = require('botbuilder'); //
+var needle = require('needle');
+var restify = require('restify');
+var url = require('url');
+var validUrl = require('valid-url');
+var captionService = require('./caption-service');
 var app = express();
 
 app.set('port', (process.env.PORT || 3978));
@@ -127,16 +127,16 @@ function handleSuccessResponse(session, caption) {
     if (caption) {
         session.send('That looks like a : ' + caption);
     } else {
-        session.send('Don\'t know what that is...Hmmm...);
-        }
-
+        session.send('Don\'t know what that is...Hmmm...');
     }
 
-    function handleErrorResponse(session, error) {
-        session.send('Oops! Something went wrong. Try again later.');
-        console.error(error);
-    }
+}
 
-    app.listen(app.get('port'), function() {
-        console.log('Node app is running on port', app.get('port'));
-    });
+function handleErrorResponse(session, error) {
+    session.send('Oops! Something went wrong. Try again later.');
+    console.error(error);
+}
+
+app.listen(app.get('port'), function() {
+    console.log('Node app is running on port', app.get('port'));
+});
